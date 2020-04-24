@@ -13,5 +13,30 @@
 	</tbody>
 </table>
 <h2>New book</h2>
-<form class="new_book" id="new_book" action="/books" accept-charset="UTF-8" method="post"></form>
+<%= form_for(@book, url: 'books') do |f| %>
+<label for="book_title">Title</label>
+<%= f.text_field :title %>
+<label for="book_opinion">Opinion</label>
+<%= f.text_area :body %>
+<%= f.submit 'Create Book' %>
+<% end %>
 <h2>Book detail</h2>
+<table>
+	<thead>
+		<tr>
+			<th class="title">Title</th>
+			<th class="opinion">Opinion</th>
+			<th colspan="3"></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @books.each do |book| %>
+			<tr>
+				<td><%= book.title %></td>
+			</tr>
+			<tr>
+				<td><%= book.body %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
