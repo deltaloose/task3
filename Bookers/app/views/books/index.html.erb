@@ -10,6 +10,11 @@
 		<tr>
 			<th>introduction</th>
 		</tr>
+		<% if @user.id == current_user.id %>
+		<div class="user-config">
+			<%= link_to "プロフ編集",edit_user_path(@user) %>
+		<% end %>
+		</div>
 	</tbody>
 </table>
 <h2>New book</h2>
@@ -32,7 +37,11 @@
 	<tbody>
 		<% @books.each do |book| %>
 			<tr>
-				<td><%= book.title %></td>
+				<td>
+					<%= link_to book_path(book.id) do %>
+					<%= book.title %>
+					<% end %>
+				</td>
 			</tr>
 			<tr>
 				<td><%= book.body %></td>
