@@ -10,10 +10,8 @@
 		<tr>
 			<th>introduction</th>
 		</tr>
-		<% if @user.id == current_user.id %>
 		<div class="user-config">
-			<%= link_to "プロフ編集",edit_user_path(@user) %>
-		<% end %>
+			<%= link_to "プロフ編集",edit_user_path(current_user) %>
 		</div>
 	</tbody>
 </table>
